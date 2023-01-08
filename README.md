@@ -1,0 +1,1 @@
+Application to quickly listen to tracks using previews and add them to a spotify playlist
