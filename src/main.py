@@ -166,15 +166,17 @@ class PreviewQueue():
 
     @classmethod
     def start(cls):
-        choice = util.select_from_list(['new queue', 'load queue'])
-
-        if choice == 'new queue':
-            while True:
-                name = input("Name: ").strip()
-                if name: break
-            return cls(name)
-        elif choice == 'load queue':
-            return cls.queue_load()
+        
+        while True:
+            choice = util.select_from_list(['new queue', 'load queue'])
+            if choice == 'new queue':
+                while True:
+                    name = input("Name: ").strip()
+                    if name: break
+                return cls(name)
+            elif choice == 'load queue':
+                result = cls.queue_load()
+                if result: return result
 
     def __init__(self, name:str):
         """
