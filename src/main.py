@@ -20,10 +20,6 @@ import time
 from typing import Self
 
 
-# Add the Chrome Driver to path
-CHROME_DRIVER_PATH = "C:\chromedriver_win32\chromedriver.exe"
-os.environ["PATH"] += os.pathsep + CHROME_DRIVER_PATH
-
 # Ignore nonsense errors
 options = webdriver.ChromeOptions()
 options.add_experimental_option('excludeSwitches', ['enable-logging'])
@@ -166,7 +162,7 @@ class PreviewQueue():
     FN_LISTENED_TRACKS = '../data/listened_tracks'
 
     # Save file location for queues
-    save_file_location = '../data/queues/'
+    save_file_location = '../queues/'
 
     @classmethod
     def start(cls):
@@ -268,6 +264,7 @@ class PreviewQueue():
         """
         
         existing_queues = util.files_within(cls.save_file_location, extension='*.pkl', subdirs=True)
+        print()
         choice = util.select_from_dict(existing_queues)
 
         if choice is None:
