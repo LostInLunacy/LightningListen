@@ -598,6 +598,8 @@ def main():
         # Run the PreviewQueue's main menu
         pq.menu()
 
+        pq.queue_save()
+
 
 if __name__ == '__main__':
     main()
