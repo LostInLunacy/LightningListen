@@ -312,6 +312,7 @@ class PreviewQueue():
         thread.start()
 
         # Get input for liked tracks while thread is running
+        print("Type \"exit\" to stop the queue at any time")
         self.get_user_input_likes()
 
         # User exited function, so exit preview_tracks on next iteration
