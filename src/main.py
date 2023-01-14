@@ -176,7 +176,7 @@ class PreviewQueue():
                 return cls(name)
             elif choice == 'load queue':
                 result = cls.queue_load()
-                if result: return result
+                if result is not None: return result
 
     def __init__(self, name:str):
         """
@@ -465,10 +465,11 @@ class PreviewQueue():
         Add to queue given a everynoise new_releases and optional genre filter
         """
         genre = input("Genre: ")
-        nr = NewReleases(genre=genre) if genre is not None else NewReleases()
+        nr = NewReleases(genre=genre) if genre else NewReleases()
         
-        similar = util.yn("Include similar?", allow_none=True)
-        return nr.tracks if not similar else nr.tracks_and_similar
+        if nr.genre != 'anygenre' and util.yn("Include similar?", allow_none=True):
+            return nr.tracks_and_similar
+        return nr.tracks
 
     """
     ** Filters

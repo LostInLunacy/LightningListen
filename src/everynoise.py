@@ -10,6 +10,7 @@ from bs4 import BeautifulSoup
 import os
 import pickle
 import requests
+from tqdm import tqdm
 from typing import List
 import util
 
@@ -41,7 +42,7 @@ class SearchOptions(dict):
         initial_result = {i.get('name'): [j.get('value') for j in i.find_all('option')] for i in select_tags}
 
         # Get genres
-        genres = [i.text for i in soup.find_all('div', attrs={'class': 'genre', 'title': True})]
+        genres = [i.text for i in soup.find_all('div', attrs={'class': 'genre', 'title': True})] + ['anygenre']
 
         combined_results = initial_result | {'genres': genres}
         return combined_results
@@ -164,7 +165,9 @@ class NewReleases():
         """ Extract the tracks for the genre specified """
         pre_results = [i.find_parent('tr') for i in self.soup.find_all('input', attrs={'name': 't'})]
         results = [i for i in pre_results if i.find_previous_sibling('tr', class_='similargenres') is None]
-        return [self._get_track(i) for i in results] 
+
+        print("Getting tracks from everynoise")
+        return [self._get_track(i) for i in tqdm(results)] 
 
     @property
     def tracks_and_similar(self) -> List[Track]:
