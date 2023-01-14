@@ -18,28 +18,28 @@ Queues are essentially a list of tracks which you can listen to or add to at any
 
 ### Queue Settings
 
-1. Destination Playlist
-    The Spotify playlist to which you can save tracks as you're previewing them
-2. Listen time
-    Number of seconds you wish to preview each track for (max 30 seconds)
-3. New
+- Destination Playlist
+    - The Spotify playlist to which you can save tracks as you're previewing them
+- Listen time
+    - Number of seconds you wish to preview each track for (max 30 seconds)
+- New
     1. OFF
     2. Track - filters tracks to exclude any you've already listened to using the app
     3. Artist - filters tracks to exclude any by artists you've already listened to using the app
-4. Unique
+- Unique
     1. OFF
     2. Track - only includes unique tracks
-    3. Artist - inly includes unique artists
-5. Shuffle
+    3. Artist - only includes unique artists
+- Shuffle
     Will shuffle the tracks
 
 
 ### Adding the Queue
 
 1. Everynoise
-    Add tracks from this week's Spotify releases catalogued by everynoise.com
+    - Add tracks from this week's Spotify releases catalogued by everynoise.com
 2. Links
-    Add all tracks from a given playlist, album or artist
+    - Add all tracks from a given playlist, album or artist
 
 
 ### Saving tracks to destination playlist
