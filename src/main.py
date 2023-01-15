@@ -405,9 +405,15 @@ class PreviewQueue():
             
             if not choice_func:
                 break
-                
+
+            # Execute the selected function
             choice_func()
 
+            # If changed settings, update filters to keep tracklist up to date
+            if choice_func == self.settings.update:
+                self.filter()
+
+            # If deleting queue, exit
             if choice_func == self.delete:
                 break
 
@@ -496,7 +502,7 @@ class PreviewQueue():
                 self.filter_artist_unique()
         
         if self.settings.shuffle:
-            self.shuffle_tracks()
+            self.shuffle()
 
 
     def filter_has_preview_url(self) -> None:
